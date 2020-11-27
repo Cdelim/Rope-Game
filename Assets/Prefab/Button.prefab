@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8436084833741032089}
   - component: {fileID: 868107383424231571}
   - component: {fileID: 3883938292161307755}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Capsule
   m_TagString: Button
   m_Icon: {fileID: 0}
@@ -185,8 +185,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.24415447
-  m_Center: {x: 0, y: 0.0954322, z: 0}
+  m_Radius: 0.4109827
+  m_Center: {x: 0, y: -0.65529466, z: 0}
 --- !u!54 &1175223591130845773
 Rigidbody:
   m_ObjectHideFlags: 0

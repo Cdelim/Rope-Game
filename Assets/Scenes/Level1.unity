@@ -146,7 +146,7 @@ PrefabInstance:
     - target: {fileID: 5651894104485084300, guid: 4f129525f83f1514fa6f10b2aba385ef,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.3
+      value: 0.12
       objectReference: {fileID: 0}
     - target: {fileID: 5651894104485084300, guid: 4f129525f83f1514fa6f10b2aba385ef,
         type: 3}
@@ -192,6 +192,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2418805214095453194, guid: 4f129525f83f1514fa6f10b2aba385ef,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f129525f83f1514fa6f10b2aba385ef, type: 3}
@@ -435,7 +440,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 426561452}
-  resolution: 1
+  resolution: 1.5
   ropeDrag: 0.1
   ropeMass: 0.1
   ropeColRadius: 0.5
@@ -443,7 +448,7 @@ MonoBehaviour:
   lowTwistLimit: -100
   highTwistLimit: 100
   swing1Limit: 20
-  prefab: {fileID: 5093363537619913748, guid: d17904b64da7f2c4483d2a948ab35156, type: 3}
+  prefab: {fileID: 1180740740410002261, guid: 20ee91cf08adc314b83ea6e9007f965c, type: 3}
 --- !u!114 &458079036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -457,7 +462,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 426561452}
-  resolution: 1
+  resolution: 2
   ropeDrag: 0.1
   ropeMass: 0.1
   ropeColRadius: 0.5
@@ -465,7 +470,7 @@ MonoBehaviour:
   lowTwistLimit: -100
   highTwistLimit: 100
   swing1Limit: 20
-  partPrefab: {fileID: 4044206545511772030, guid: 90269161aaba93749bb345513b46436d,
+  partPrefab: {fileID: 1180740740410002261, guid: 20ee91cf08adc314b83ea6e9007f965c,
     type: 3}
 --- !u!1 &705507993
 GameObject:
@@ -540,7 +545,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 6.162976e-33, y: NaN, z: 4.1359028e-25, w: 0}
+  m_BoundingSphereOverride: {x: 3.9451668e-36, y: 5.779e-42, z: 1e-45, w: -2.729426}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -613,7 +618,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 764972649}
-  resolution: 1
+  resolution: 1.5
   ropeDrag: 0.1
   ropeMass: 0.1
   ropeColRadius: 0.5
@@ -621,7 +626,7 @@ MonoBehaviour:
   lowTwistLimit: -100
   highTwistLimit: 100
   swing1Limit: 20
-  prefab: {fileID: 0}
+  prefab: {fileID: 1180740740410002261, guid: 20ee91cf08adc314b83ea6e9007f965c, type: 3}
 --- !u!120 &785335874
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -869,13 +874,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.48114172, y: 0, z: 0, w: 0.8766428}
-  m_LocalPosition: {x: 0, y: 6, z: 0}
+  m_LocalRotation: {x: 0.3796176, y: 0, z: 0, w: 0.92514354}
+  m_LocalPosition: {x: 0.07, y: 8.56, z: -2.95}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 57.52, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 44.62, y: 0, z: 0}
 --- !u!1 &969274122
 GameObject:
   m_ObjectHideFlags: 0
@@ -1059,6 +1064,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 3216617118308016951, guid: af7ba3dea3d986e4188263b4769d9a81,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7959627533976591711, guid: af7ba3dea3d986e4188263b4769d9a81,
         type: 3}
       propertyPath: m_Name
@@ -1068,6 +1078,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7959627533976591711, guid: af7ba3dea3d986e4188263b4769d9a81,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4102035191713644352, guid: af7ba3dea3d986e4188263b4769d9a81,
         type: 3}
@@ -1089,6 +1104,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 8862728809370652995, guid: af7ba3dea3d986e4188263b4769d9a81,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1987149022121201920, guid: af7ba3dea3d986e4188263b4769d9a81,
         type: 3}
       propertyPath: m_Name
@@ -1098,6 +1118,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1987149022121201920, guid: af7ba3dea3d986e4188263b4769d9a81,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 248701263781203657, guid: af7ba3dea3d986e4188263b4769d9a81,
         type: 3}
@@ -1273,8 +1298,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1399601409}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 1, z: 2.3}
+  m_LocalPosition: {x: 0, y: -7.32, z: 9.15}
+  m_LocalScale: {x: 2, y: 1, z: 4.55}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -1342,7 +1367,7 @@ PrefabInstance:
     - target: {fileID: 5651894104485084300, guid: 4f129525f83f1514fa6f10b2aba385ef,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.3
+      value: 0.12
       objectReference: {fileID: 0}
     - target: {fileID: 5651894104485084300, guid: 4f129525f83f1514fa6f10b2aba385ef,
         type: 3}
@@ -1388,6 +1413,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2418805214095453194, guid: 4f129525f83f1514fa6f10b2aba385ef,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f129525f83f1514fa6f10b2aba385ef, type: 3}
@@ -1509,7 +1539,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 75274530}
-  resolution: 1
+  resolution: 1.5
   ropeDrag: 0.1
   ropeMass: 0.1
   ropeColRadius: 0.5
@@ -1517,7 +1547,7 @@ MonoBehaviour:
   lowTwistLimit: -100
   highTwistLimit: 100
   swing1Limit: 20
-  prefab: {fileID: 0}
+  prefab: {fileID: 1180740740410002261, guid: 20ee91cf08adc314b83ea6e9007f965c, type: 3}
 --- !u!120 &1989980393
 LineRenderer:
   m_ObjectHideFlags: 0

@@ -115,8 +115,9 @@ public class RopeScript : MonoBehaviour {
  
 	void AddJointPhysics(int n)
 	{
+		//joints[n] = Instantiate(prefab, segmentPos[n], prefab.transform.rotation);
 		joints[n] = new GameObject("Joint_" + n);
-		joints[n].transform.parent = transform;
+        joints[n].transform.parent = transform;
 		Rigidbody rigid = joints[n].AddComponent<Rigidbody>();
 		SphereCollider col = joints[n].AddComponent<SphereCollider>();
 		CharacterJoint ph = joints[n].AddComponent<CharacterJoint>();
@@ -130,14 +131,15 @@ public class RopeScript : MonoBehaviour {
 		limit_setter = ph.swing1Limit;
 		limit_setter.limit = swing1Limit;
 		ph.swing1Limit = limit_setter;
- 
+
+        //joints[n].layer = LayerMask.GetMask("End");
 		joints[n].transform.position = segmentPos[n];
         //GameObject temp=Instantiate(prefab, segmentPos[n], Quaternion.identity, joints[n].transform);
         
  
 		rigid.drag = ropeDrag;
 		rigid.mass = ropeMass;
-		col.radius = ropeColRadius;
+		col.radius = 0.2f;
  
 		if(n==1){		
 			ph.connectedBody = transform.GetComponent<Rigidbody>();

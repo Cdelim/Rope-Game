@@ -4,15 +4,15 @@ using UnityEngine;
 public class InputContoller : MonoBehaviour
 {
     RopeScript ropeScript;
-    private int buttonLayer;
-    private int targetLayer;
+    private LayerMask buttonLayer;
+    private LayerMask targetLayer;
     private bool isButtonUp=false;
     private Transform button;
-    private float smooth=0.2f;
     void Start()
     {
         buttonLayer=LayerMask.GetMask("End");
         targetLayer=LayerMask.GetMask("Target");
+        print(targetLayer);
         /*GameObject pipe=GameObject.Find("Pipe");
         ropeScript=pipe.GetComponent<>*/
     }
@@ -27,32 +27,30 @@ public class InputContoller : MonoBehaviour
         RaycastHit hitInfo;
         if (Input.GetMouseButtonDown(0))
         {
-            if (Physics.Raycast(ray, out hitInfo,buttonLayer))
+            if (!isButtonUp)
             {
-                if (!isButtonUp)
+                if (Physics.Raycast(ray, out hitInfo, buttonLayer))
                 {
-                    print("1");
-                    print(hitInfo.transform.name);
-                    button = hitInfo.transform;
-                    button.position = Vector3.MoveTowards(button.position, button.position + Vector3.up, smooth);
-                    //hitInfo.transform.Translate(Vector3.up * Time.deltaTime);
-                    isButtonUp = true;
-                }
-                else
-                {
-                    print("2");
-                    button.position = Vector3.MoveTowards(button.position, button.position + Vector3.down, smooth);
-                    //hitInfo.transform.Translate(Vector3.down * Time.deltaTime);
-                    isButtonUp = false;
+                        /*print("1");
+                        print(hitInfo.transform.name+"1");*/
+                        button = hitInfo.transform;
+                        button.position = Vector3.MoveTowards(button.position, button.position + Vector3.up, 1);
+                        isButtonUp = true;
                 }
             }
-            if (Physics.Raycast(ray, out hitInfo, targetLayer))
+            else
             {
-                if (isButtonUp && button != null)
+                if (Physics.Raycast(ray, out hitInfo, targetLayer))
                 {
-                    print("3");
-                    button.position = Vector3.MoveTowards(button.position, hitInfo.transform.position + new Vector3(0, 1, 0), smooth);
-                    button.position = Vector3.MoveTowards(button.position, hitInfo.transform.position, smooth);
+                    if (isButtonUp && button != null)
+                    {
+                       /* print("3");
+                        print(hitInfo.transform.name + "3");
+                        print(hitInfo.transform.position);*/
+                        button.position = Vector3.MoveTowards(button.position, hitInfo.transform.position + new Vector3(0, 1, 0), 1);
+                        button.position = Vector3.MoveTowards(button.position, hitInfo.transform.position, 1);
+                        isButtonUp = false;
+                    }
                 }
             }
         }
