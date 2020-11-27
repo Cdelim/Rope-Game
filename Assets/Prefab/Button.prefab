@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3883938292161307755}
   m_Layer: 0
   m_Name: Capsule
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1819760736896003808}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.38, z: -0.0000000040155}
-  m_LocalScale: {x: 0.5, y: 1, z: 0.5}
+  m_LocalPosition: {x: 0, y: -0.41, z: -0.0000000040155}
+  m_LocalScale: {x: 0.421215, y: 0.507741, z: 0.421215}
   m_Children: []
   m_Father: {fileID: 5651894104485084300}
   m_RootOrder: 0
@@ -58,7 +58,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 52b75f4b7f04fc24a87e6ae419d6c59a, type: 2}
+  - {fileID: 2100000, guid: 6eaa17632b4ab4c42a0dda08aa0ce13d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -88,11 +88,11 @@ CapsuleCollider:
   m_GameObject: {fileID: 1819760736896003808}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
+  m_Enabled: 0
+  m_Radius: 0.13445891
+  m_Height: 0.5085989
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: -0.74570054, z: 0.37259763}
 --- !u!1 &2601210867476258860
 GameObject:
   m_ObjectHideFlags: 0
@@ -106,10 +106,9 @@ GameObject:
   - component: {fileID: 1426402767899383403}
   - component: {fileID: 2418805214095453194}
   - component: {fileID: 1175223591130845773}
-  - component: {fileID: 192863725898348842}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Button
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -122,8 +121,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2601210867476258860}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.2886695, y: 10.44952, z: -0.037645}
-  m_LocalScale: {x: 0.94564, y: 0.25, z: 0.9277305}
+  m_LocalPosition: {x: -2.2, y: 0.058, z: 0.95}
+  m_LocalScale: {x: 1.17, y: -0.26, z: 1.03}
   m_Children:
   - {fileID: 4693289906963216554}
   m_Father: {fileID: 0}
@@ -154,7 +153,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 52b75f4b7f04fc24a87e6ae419d6c59a, type: 2}
+  - {fileID: 2100000, guid: 6eaa17632b4ab4c42a0dda08aa0ce13d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -186,8 +185,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.24415447
+  m_Center: {x: 0, y: 0.0954322, z: 0}
 --- !u!54 &1175223591130845773
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -204,48 +203,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!144 &192863725898348842
-CharacterJoint:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2601210867476258860}
-  m_ConnectedBody: {fileID: 0}
-  m_Anchor: {x: 0, y: 0.5, z: 0}
-  m_Axis: {x: 1, y: 0, z: 0}
-  m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -1.2886695, y: 10.57452, z: -0.037645}
-  serializedVersion: 2
-  m_SwingAxis: {x: 0, y: 1, z: 0}
-  m_TwistLimitSpring:
-    spring: 0
-    damper: 0
-  m_LowTwistLimit:
-    limit: -20
-    bounciness: 0
-    contactDistance: 0
-  m_HighTwistLimit:
-    limit: 70
-    bounciness: 0
-    contactDistance: 0
-  m_SwingLimitSpring:
-    spring: 0
-    damper: 0
-  m_Swing1Limit:
-    limit: 40
-    bounciness: 0
-    contactDistance: 0
-  m_Swing2Limit:
-    limit: 40
-    bounciness: 0
-    contactDistance: 0
-  m_EnableProjection: 0
-  m_ProjectionDistance: 0.1
-  m_ProjectionAngle: 180
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_EnableCollision: 0
-  m_EnablePreprocessing: 1
-  m_MassScale: 1
-  m_ConnectedMassScale: 1

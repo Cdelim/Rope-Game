@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4044206545511772030
+--- !u!1 &1180740740410002261
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,48 +8,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7125940952132116518}
-  - component: {fileID: 4694347356317374793}
-  - component: {fileID: 4674451417259613089}
-  - component: {fileID: 6430318743223223212}
-  - component: {fileID: 6184844954973252415}
-  - component: {fileID: 3439009700492351083}
+  - component: {fileID: 3894680720448302711}
+  - component: {fileID: 8191410813439767359}
+  - component: {fileID: 8357272644819478191}
+  - component: {fileID: 709863393737653745}
+  - component: {fileID: 8858108151634619138}
+  - component: {fileID: 5094738833346772587}
   m_Layer: 0
-  m_Name: partOfRope
+  m_Name: partOfRobe2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7125940952132116518
+--- !u!4 &3894680720448302711
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4044206545511772030}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.86998653, y: 0.09191415, z: -1.2905822}
-  m_LocalScale: {x: 0.1, y: 0.12, z: 0.1}
+  m_GameObject: {fileID: 1180740740410002261}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 1.8024871, y: 0.85, z: 2.83}
+  m_LocalScale: {x: 0.4879101, y: 0.26254955, z: 0.40150088}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &4694347356317374793
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!33 &8191410813439767359
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4044206545511772030}
+  m_GameObject: {fileID: 1180740740410002261}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &4674451417259613089
+--- !u!23 &8357272644819478191
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4044206545511772030}
+  m_GameObject: {fileID: 1180740740410002261}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 52b75f4b7f04fc24a87e6ae419d6c59a, type: 2}
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -81,27 +81,27 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &6430318743223223212
+--- !u!136 &709863393737653745
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4044206545511772030}
+  m_GameObject: {fileID: 1180740740410002261}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1.7
+  m_Radius: 0.38536006
+  m_Height: 2.0573606
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &6184844954973252415
+  m_Center: {x: 0, y: 0.001999614, z: 0.0018456616}
+--- !u!54 &8858108151634619138
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4044206545511772030}
+  m_GameObject: {fileID: 1180740740410002261}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -111,45 +111,35 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!144 &3439009700492351083
-CharacterJoint:
+--- !u!59 &5094738833346772587
+HingeJoint:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4044206545511772030}
+  m_GameObject: {fileID: 1180740740410002261}
   m_ConnectedBody: {fileID: 0}
-  m_Anchor: {x: 0, y: 1, z: 0}
+  m_Anchor: {x: 0, y: 1.0000002, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0, z: 0}
-  serializedVersion: 2
-  m_SwingAxis: {x: 0, y: 1, z: 0}
-  m_TwistLimitSpring:
+  m_ConnectedAnchor: {x: 1.8024871, y: 0.85, z: 3.0925496}
+  m_UseSpring: 0
+  m_Spring:
     spring: 0
     damper: 0
-  m_LowTwistLimit:
-    limit: -20
+    targetPosition: 0
+  m_UseMotor: 0
+  m_Motor:
+    targetVelocity: 0
+    force: 0
+    freeSpin: 0
+  m_UseLimits: 0
+  m_Limits:
+    min: 0
+    max: 0
     bounciness: 0
+    bounceMinVelocity: 0.2
     contactDistance: 0
-  m_HighTwistLimit:
-    limit: 70
-    bounciness: 0
-    contactDistance: 0
-  m_SwingLimitSpring:
-    spring: 0
-    damper: 0
-  m_Swing1Limit:
-    limit: 40
-    bounciness: 0
-    contactDistance: 0
-  m_Swing2Limit:
-    limit: 40
-    bounciness: 0
-    contactDistance: 0
-  m_EnableProjection: 0
-  m_ProjectionDistance: 0.1
-  m_ProjectionAngle: 180
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_EnableCollision: 0
