@@ -13,7 +13,7 @@ public class RopeScript : MonoBehaviour {
 	
  
 	public Transform target;
-	public float resolution = 1F;							  
+	public float resolution = 0.5F;							  
 	public float ropeDrag = 0.1F;								 
 	public float ropeMass = 0.1F;							
 	public float ropeColRadius = 0.3F;					
@@ -23,15 +23,16 @@ public class RopeScript : MonoBehaviour {
 	private LineRenderer line;							
 	private int segments = 0;					
 	private bool rope = false;						 
- 
+    
 	//Joint Settings
-	public Vector3 swingAxis = new Vector3(1,1,1);				 
+	/*public Vector3 swingAxis = new Vector3(1,1,1);				 
 	public float lowTwistLimit = -100.0F;					
 	public float highTwistLimit = 100.0F;					
-	public float swing1Limit  = 20.0F;					
+	public float swing1Limit  = 20.0F;		*/			
 
     [SerializeField] GameObject prefab;
-    
+    [SerializeField] Material matOfPrefab;
+
     void Awake()
 	{
         BuildRope();
@@ -39,7 +40,7 @@ public class RopeScript : MonoBehaviour {
  
 	void LateUpdate()
 	{
-		if(rope) {
+		/*if(rope) {
 			for(int i=0;i<segments;i++) {
 				if(i == 0) {
 					line.SetPosition(i,transform.position);
@@ -53,17 +54,17 @@ public class RopeScript : MonoBehaviour {
 			line.enabled = true;
 		} else {
 			line.enabled = false;	
-		}
+		}*/
 	}
  
  
  
 	void BuildRope()
 	{
-		line = gameObject.GetComponent<LineRenderer>();
+		//line = gameObject.GetComponent<LineRenderer>();
         segments = (int)(Vector3.Distance(transform.position,target.position)*resolution);
 		//line.SetVertexCount(segments);
-		line.SetVertexCount(segments);
+		//line.SetVertexCount(segments);
 		segmentPos = new Vector3[segments];
 		joints = new GameObject[segments];
 		segmentPos[0] = transform.position;
@@ -95,9 +96,9 @@ public class RopeScript : MonoBehaviour {
             AddJointPhysics(s);
 		}
  
-		CharacterJoint end = target.gameObject.AddComponent<CharacterJoint>();
+		SpringJoint end = target.gameObject.AddComponent<SpringJoint>();
 		end.connectedBody = joints[joints.Length-1].transform.GetComponent<Rigidbody>();
-		end.swingAxis = swingAxis;
+		/*end.swingAxis = swingAxis;
 		SoftJointLimit limit_setter = end.lowTwistLimit;
 		limit_setter.limit = lowTwistLimit;
 		end.lowTwistLimit = limit_setter;
@@ -106,7 +107,7 @@ public class RopeScript : MonoBehaviour {
 		end.highTwistLimit = limit_setter;
 		limit_setter = end.swing1Limit;
 		limit_setter.limit = swing1Limit;
-		end.swing1Limit = limit_setter;
+		end.swing1Limit = limit_setter;*/
 		//target.parent = transform;
  
 		// Rope = true, The rope now exists in the scene!
@@ -115,14 +116,17 @@ public class RopeScript : MonoBehaviour {
  
 	void AddJointPhysics(int n)
 	{
-		//joints[n] = Instantiate(prefab, segmentPos[n], prefab.transform.rotation);
-		joints[n] = new GameObject("Joint_" + n);
+		joints[n] = Instantiate(prefab, segmentPos[n], prefab.transform.rotation);
+        joints[n].GetComponent<MeshRenderer>().material = matOfPrefab;
+        //joints[n] = new GameObject("Joint_" + n);
         joints[n].transform.parent = transform;
 		Rigidbody rigid = joints[n].AddComponent<Rigidbody>();
 		SphereCollider col = joints[n].AddComponent<SphereCollider>();
-		CharacterJoint ph = joints[n].AddComponent<CharacterJoint>();
-		ph.swingAxis = swingAxis;
-		SoftJointLimit limit_setter = ph.lowTwistLimit;
+        SpringJoint ph = joints[n].AddComponent<SpringJoint>();
+        ph.spring = 20;
+        ph.anchor = new Vector3(0, 0, 0);
+		//ph.swingAxis = swingAxis;
+		/*SoftJointLimit limit_setter = ph.lowTwistLimit;
 		limit_setter.limit = lowTwistLimit;
 		ph.lowTwistLimit = limit_setter;
 		limit_setter = ph.highTwistLimit;
@@ -130,7 +134,7 @@ public class RopeScript : MonoBehaviour {
 		ph.highTwistLimit = limit_setter;
 		limit_setter = ph.swing1Limit;
 		limit_setter.limit = swing1Limit;
-		ph.swing1Limit = limit_setter;
+		ph.swing1Limit = limit_setter;*/
 
         //joints[n].layer = LayerMask.GetMask("End");
 		joints[n].transform.position = segmentPos[n];
@@ -139,7 +143,7 @@ public class RopeScript : MonoBehaviour {
  
 		rigid.drag = ropeDrag;
 		rigid.mass = ropeMass;
-		col.radius = 0.2f;
+		col.radius = ropeColRadius;
  
 		if(n==1){		
 			ph.connectedBody = transform.GetComponent<Rigidbody>();

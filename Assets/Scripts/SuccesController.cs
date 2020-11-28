@@ -25,6 +25,7 @@ public class SuccesController : MonoBehaviour
         {
             Debug.DrawLine(ray.origin, hit.point, Color.red);
             //ropeScript.DestroyRope();
+            //GameController.numberOfRope--;
         }
         else {
             Debug.DrawLine(ray.origin, ray.origin + ray.direction * 100, Color.green);
