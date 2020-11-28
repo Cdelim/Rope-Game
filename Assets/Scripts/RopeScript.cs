@@ -5,7 +5,6 @@ using UnityEngine;
 using UnityEngine;
 using System.Collections;
  
-// Require a Rigidbody and LineRenderer object for easier assembly
 [RequireComponent (typeof (Rigidbody))]
 [RequireComponent (typeof (LineRenderer))]
  
@@ -23,12 +22,7 @@ public class RopeScript : MonoBehaviour {
 	private LineRenderer line;							
 	private int segments = 0;					
 	private bool rope = false;						 
-    
-	//Joint Settings
-	/*public Vector3 swingAxis = new Vector3(1,1,1);				 
-	public float lowTwistLimit = -100.0F;					
-	public float highTwistLimit = 100.0F;					
-	public float swing1Limit  = 20.0F;		*/			
+    		
 
     [SerializeField] GameObject prefab;
     [SerializeField] Material matOfPrefab;
@@ -38,33 +32,12 @@ public class RopeScript : MonoBehaviour {
         BuildRope();
 	}
  
-	void LateUpdate()
-	{
-		/*if(rope) {
-			for(int i=0;i<segments;i++) {
-				if(i == 0) {
-					line.SetPosition(i,transform.position);
-				} else
-				if(i == segments-1) {
-					line.SetPosition(i,target.transform.position);	
-				} else {
-					line.SetPosition(i,joints[i].transform.position);
-				}
-			}
-			line.enabled = true;
-		} else {
-			line.enabled = false;	
-		}*/
-	}
  
  
  
 	void BuildRope()
 	{
-		//line = gameObject.GetComponent<LineRenderer>();
         segments = (int)(Vector3.Distance(transform.position,target.position)*resolution);
-		//line.SetVertexCount(segments);
-		//line.SetVertexCount(segments);
 		segmentPos = new Vector3[segments];
 		joints = new GameObject[segments];
 		segmentPos[0] = transform.position;
@@ -77,40 +50,13 @@ public class RopeScript : MonoBehaviour {
 		{
 			Vector3 vector = (seperation*s) + transform.position;	
 			segmentPos[s] = vector;
-            /*
-            GameObject temp;
-            temp=Instantiate(partPrefab,new Vector3(parentObject.position.x,vector,parentObject.position.z),Quaternion.identity,parentObject);
-            temp.transform.eulerAngles=new Vector3(180,0,0);
-            temp.name=parentObject.transform.childCount.ToString();
-            switch(i){
-                case 0:
-                    Destroy(temp.GetComponent<CharacterJoint>());
-                    temp.GetComponent<Rigidbody>().constraints=RigidbodyConstraints.FreezeAll;
-                    break;
-                default:
-                    temp.GetComponent<CharacterJoint>().connectedBody=parentObject.transform.GetChild(s-1).GetComponent<Rigidbody>();
-                    break;
-           
-            
-            }*/
             AddJointPhysics(s);
 		}
  
 		SpringJoint end = target.gameObject.AddComponent<SpringJoint>();
 		end.connectedBody = joints[joints.Length-1].transform.GetComponent<Rigidbody>();
-		/*end.swingAxis = swingAxis;
-		SoftJointLimit limit_setter = end.lowTwistLimit;
-		limit_setter.limit = lowTwistLimit;
-		end.lowTwistLimit = limit_setter;
-		limit_setter = end.highTwistLimit;
-		limit_setter.limit = highTwistLimit;
-		end.highTwistLimit = limit_setter;
-		limit_setter = end.swing1Limit;
-		limit_setter.limit = swing1Limit;
-		end.swing1Limit = limit_setter;*/
 		//target.parent = transform;
  
-		// Rope = true, The rope now exists in the scene!
 		rope = true;
 	}
  
@@ -125,16 +71,6 @@ public class RopeScript : MonoBehaviour {
         SpringJoint ph = joints[n].AddComponent<SpringJoint>();
         ph.spring = 20;
         ph.anchor = new Vector3(0, 0, 0);
-		//ph.swingAxis = swingAxis;
-		/*SoftJointLimit limit_setter = ph.lowTwistLimit;
-		limit_setter.limit = lowTwistLimit;
-		ph.lowTwistLimit = limit_setter;
-		limit_setter = ph.highTwistLimit;
-		limit_setter.limit = highTwistLimit;
-		ph.highTwistLimit = limit_setter;
-		limit_setter = ph.swing1Limit;
-		limit_setter.limit = swing1Limit;
-		ph.swing1Limit = limit_setter;*/
 
         //joints[n].layer = LayerMask.GetMask("End");
 		joints[n].transform.position = segmentPos[n];
