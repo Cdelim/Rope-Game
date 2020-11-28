@@ -32,9 +32,6 @@ public class InputContoller : MonoBehaviour
             {
                 if (Physics.Raycast(ray, out hitInfo,20 ,buttonLayer))
                 {
-                    print("1");
-                    print(hitInfo.transform.name + "1");
-                    print(hitInfo.transform.position);
                     button = hitInfo.transform;
                     button.position = Vector3.MoveTowards(button.position, button.position + Vector3.up, 1);
                     isButtonUp = true;
@@ -46,10 +43,10 @@ public class InputContoller : MonoBehaviour
                 {
                     if (isButtonUp && button != null)
                     {
-                        MenuManager.numberOfMove--;
-                        print("3");
-                        print(hitInfo.transform.name + "3");
-                        print(hitInfo.transform.position);
+                        if (Vector3.Distance(button.position, hitInfo.transform.position) > 1)
+                        {
+                            MenuManager.numberOfMove--;
+                        }
                         /*button.position = Vector3.MoveTowards(button.position, hitInfo.transform.position + new Vector3(0, 1, 0), 1);
                         button.position = Vector3.MoveTowards(button.position, hitInfo.transform.position, 1);*/
                         button.position = hitInfo.transform.position;
