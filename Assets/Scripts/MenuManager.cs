@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
-    public static int numberOfMove = 5;
+    public static int numberOfMove = 7;
     [SerializeField] Text movesText;
     [SerializeField] GameObject gameOver;
     private void Awake()
@@ -27,6 +27,9 @@ public class MenuManager : MonoBehaviour
 
     }
     public void OnRestart() {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        gameOver.SetActive(false);
+        numberOfMove = 10;
+        Time.timeScale = 1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

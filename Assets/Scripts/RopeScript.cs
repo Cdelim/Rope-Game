@@ -6,7 +6,7 @@ using UnityEngine;
 using System.Collections;
  
 [RequireComponent (typeof (Rigidbody))]
-[RequireComponent (typeof (LineRenderer))]
+//[RequireComponent (typeof (LineRenderer))]
  
 public class RopeScript : MonoBehaviour {
 	
@@ -17,11 +17,13 @@ public class RopeScript : MonoBehaviour {
 	public float ropeMass = 0.1F;							
 	public float ropeColRadius = 0.3F;					
 	//public float ropeBreakForce = 25.0F;					 
-	private Vector3[] segmentPos;			
-	private GameObject[] joints;			
-	private LineRenderer line;							
-	private int segments = 0;					
-	private bool rope = false;						 
+	private Vector3[] segmentPos;
+    [HideInInspector]
+	public GameObject[] joints;
+    public LayerMask ropeMask;
+	//private LineRenderer line;							
+	private int segments = 0;
+    private bool rope = false;					 
     		
 
     [SerializeField] GameObject prefab;
@@ -54,16 +56,19 @@ public class RopeScript : MonoBehaviour {
 		}
  
 		SpringJoint end = target.gameObject.AddComponent<SpringJoint>();
+        end.anchor = Vector3.zero;
 		end.connectedBody = joints[joints.Length-1].transform.GetComponent<Rigidbody>();
-		//target.parent = transform;
+		target.parent = transform;
  
 		rope = true;
 	}
  
 	void AddJointPhysics(int n)
 	{
-		joints[n] = Instantiate(prefab, segmentPos[n], prefab.transform.rotation);
+		joints[n] = Instantiate(prefab, segmentPos[n], Quaternion.identity);
+        joints[n].name= transform.name+"Joint_" + n;
         joints[n].GetComponent<MeshRenderer>().material = matOfPrefab;
+        joints[n].layer = (int)Mathf.Log(ropeMask.value, 2);
         //joints[n] = new GameObject("Joint_" + n);
         joints[n].transform.parent = transform;
 		Rigidbody rigid = joints[n].AddComponent<Rigidbody>();
@@ -93,11 +98,12 @@ public class RopeScript : MonoBehaviour {
 	public void DestroyRope()
 	{
 		rope = false;
-		for(int dj=0;dj<joints.Length-1;dj++)
+		for(int dj=0;dj<joints.Length;dj++)
 		{
 			Destroy(joints[dj]);	
 		}
- 
+        //Destroy(target);
+        Destroy(gameObject);
 		segmentPos = new Vector3[0];
 		joints = new GameObject[0];
 		segments = 0;
