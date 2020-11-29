@@ -20,6 +20,7 @@ public class SuccesController : MonoBehaviour
         //switch (touch.phase)
         //{
           //  case TouchPhase.Ended:
+          //if(Input.touchCount<=0)
                 isSuccesful();
          //       break;
        // }
@@ -29,21 +30,21 @@ public class SuccesController : MonoBehaviour
     {
         //if (Input.GetMouseButtonUp(0)){// Input.GetTouch (0)
         isKnot = false;
-        print("oldu mu");
         for (int i = 1; i < ropeScript.joints.Length; i++) {
             Ray ray = new Ray(ropeScript.joints[i].transform.position + (Vector3.down * 5), Vector3.up);
 
             RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, 20, ~(ignoreMasks))) //|| Physics.Raycast(ray2, out hit2, 3,~ignoreMasks))
+            if (Physics.Raycast(ray, out hit, 10, ~(ignoreMasks))) //|| Physics.Raycast(ray2, out hit2, 3,~ignoreMasks))
             {
                 if (!hit.transform.name.StartsWith(LayerMask.LayerToName(ropeScript.joints[i].layer)))
                 {
+                    Debug.DrawLine(ray.origin, ray.origin + ray.direction * 10, Color.green);
                     isKnot = true;
                     break;
                 }
-                print(hit.transform.name);
+                /*print(hit.transform.name);
                 Debug.DrawLine(ray.origin, hit.point , Color.green);
-                print("123");
+                print("123");*/
             }
             else {
 
@@ -52,12 +53,12 @@ public class SuccesController : MonoBehaviour
 
 
         }
-        print(isKnot);
-        if (!isKnot && Time.time>5.0f) {
+        //print(isKnot);
+        if (!isKnot && Time.time>5.0f && Input.GetMouseButtonUp(0)) {
             print("asd");
-            ropeScript.DestroyRope();
-            GameController.numberOfRope--;
-            Destroy(this);
+            //ropeScript.DestroyRope();
+            //GameController.numberOfRope--;
+            //Destroy(this);
         }
         //}
 

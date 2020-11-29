@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+[RequireComponent(typeof(ButtonsScript))]
 public class InputContoller : MonoBehaviour
 {
-    RopeScript ropeScript;
+    ButtonsScript buttonScript;
     private LayerMask buttonLayer;
     private LayerMask targetLayer;
     private bool isButtonUp=false;
@@ -12,6 +14,7 @@ public class InputContoller : MonoBehaviour
     {
         buttonLayer=LayerMask.GetMask("End");
         targetLayer=LayerMask.GetMask("Target");
+        buttonScript = GetComponent<ButtonsScript>();
     }
     void Update()
     {
@@ -24,7 +27,7 @@ public class InputContoller : MonoBehaviour
     void userInput(){
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);//Input.GetTouch (0).position
         RaycastHit hitInfo;
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))// Input.touchCount<=0
         {
             if (!isButtonUp)
             {
@@ -37,7 +40,9 @@ public class InputContoller : MonoBehaviour
             }
             else
             {
-                if (Physics.Raycast(ray, out hitInfo, 20 ,targetLayer))
+            if (Physics.Raycast(ray, out hitInfo, 20, targetLayer))
+            {
+                if (!buttonScript.isHereFill(hitInfo.transform.position))
                 {
                     if (isButtonUp && button != null)
                     {
@@ -47,7 +52,7 @@ public class InputContoller : MonoBehaviour
                             //switch (touch.phase)
                             //{
                             //  case TouchPhase.Ended:
-                                MenuManager.numberOfMove--;
+                            MenuManager.numberOfMove--;
                             //       break;
                             // }
                         }
@@ -56,6 +61,7 @@ public class InputContoller : MonoBehaviour
                     }
                 }
             }
+           }
         }
 
     }
