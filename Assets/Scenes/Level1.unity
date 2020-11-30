@@ -215,6 +215,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pipe
       objectReference: {fileID: 0}
+    - target: {fileID: 7757363753663598712, guid: 9811edc5f581e2f4a99d04eb620108f0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7757363753663598716, guid: 9811edc5f581e2f4a99d04eb620108f0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -280,6 +285,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7757363753445139789, guid: 9811edc5f581e2f4a99d04eb620108f0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Rope
+      objectReference: {fileID: 0}
     - target: {fileID: 7757363752777110428, guid: 9811edc5f581e2f4a99d04eb620108f0,
         type: 3}
       propertyPath: m_Enabled
@@ -295,6 +305,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7757363752777110420, guid: 9811edc5f581e2f4a99d04eb620108f0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Rope
+      objectReference: {fileID: 0}
+    - target: {fileID: 7757363754158020673, guid: 9811edc5f581e2f4a99d04eb620108f0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Rope
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9811edc5f581e2f4a99d04eb620108f0, type: 3}
 --- !u!1001 &1405699274
@@ -308,6 +328,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Plane
+      objectReference: {fileID: 0}
+    - target: {fileID: 8148846909651408395, guid: 1e2d1f383f98cca47be87784c0dacbfa,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8148846909651408399, guid: 1e2d1f383f98cca47be87784c0dacbfa,
         type: 3}
@@ -468,6 +493,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 3118084690524033451, guid: dce37c2109061134790503493db690aa,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2276261185155777683, guid: dce37c2109061134790503493db690aa,
         type: 3}

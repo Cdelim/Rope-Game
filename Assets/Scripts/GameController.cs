@@ -9,9 +9,9 @@ public class GameController : MonoBehaviour
     //public event System.Action onLevelFinish;
 
     public static int numberOfRope;
-    void Start()
+    void Awake()
     {
-        numberOfRope = (GameObject.Find("Pipe").transform.childCount-1)/2; //Minus 1 for panel and divided by 2 because there are start and end.
+        numberOfRope = (GameObject.FindGameObjectsWithTag("Rope").Length); //Minus 1 for panel 
     }
 
     void Update()
@@ -21,7 +21,7 @@ public class GameController : MonoBehaviour
     }
 
     void isGameOver() {
-        if (MenuManager.numberOfMove <= -1) {
+        if (MenuManager.numberOfMove <= 0) {
             if (onGameOver != null) onGameOver();
         }
     }
