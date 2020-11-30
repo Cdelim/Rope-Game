@@ -28,7 +28,7 @@ public class MenuManager : MonoBehaviour
     }
     public void OnRestart() {
         gameOver.SetActive(false);
-        numberOfMove = 10;
+        numberOfMove = 7;
         Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
