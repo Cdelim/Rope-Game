@@ -18,9 +18,7 @@ public class SuccesController : MonoBehaviour
 
      void Update()
      {
-        if (Input.GetMouseButtonDown(0) ) {
-            if (isSuccess())
-            {
+        if(isSuccess()){
                 List<GameObject> tempList = new List<GameObject>(ropes);
                 tempList.Remove(this.gameObject);
                 ropes = tempList.ToArray();
@@ -29,7 +27,6 @@ public class SuccesController : MonoBehaviour
                 ropeScript.DestroyRope();
                 GameController.numberOfRope--;
                 Destroy(this);
-            }
         }
      }
 
