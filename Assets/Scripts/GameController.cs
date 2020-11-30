@@ -28,6 +28,7 @@ public class GameController : MonoBehaviour
     void isLevelFinish() {
         if (numberOfRope <= 0)
         {
+            MenuManager.numberOfMove = 7;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
         }
     }
