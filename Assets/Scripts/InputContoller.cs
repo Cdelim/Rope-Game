@@ -25,9 +25,9 @@ public class InputContoller : MonoBehaviour
     }
 
     void userInput(){
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);//Input.GetTouch (0).position
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hitInfo;
-        if (Input.GetMouseButtonDown(0))// Input.touchCount<=0
+        if (Input.GetMouseButtonDown(0))
         {
             if (!isButtonUp)
             {
@@ -48,13 +48,7 @@ public class InputContoller : MonoBehaviour
                     {
                         if (Vector3.Distance(button.position, hitInfo.transform.position) > 1.2f)
                         {
-                            //Touch touch = Input.GetTouch(0);
-                            //switch (touch.phase)
-                            //{
-                            //  case TouchPhase.Ended:
                             MenuManager.numberOfMove--;
-                            //       break;
-                            // }
                         }
                         button.position = hitInfo.transform.position;
                         isButtonUp = false;
